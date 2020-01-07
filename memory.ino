@@ -1,3 +1,6 @@
+// A simple memory game.
+// Repeat the color pattern that is dsplayed.
+
 // The length of the pattern to win with
 const int winLength = 10;
 
