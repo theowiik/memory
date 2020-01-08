@@ -4,34 +4,36 @@
 // The length of the pattern to win with
 const int winLength = 10;
 
-const int nLamps = 3;
+const int N_LAMPS = 3;
+const int LIGHT_ONE_OUT = 13;
+const int LIGHT_ONE_IN = 2;
 
-// The pattern to repeat
-// Contains indices of the combination.. 0 = "lamp 1" 
 int pattern[winLength];
-
-// The amount of lights to remember.
 int level;
 
 void setup() {
   level = 1;
   generatePattern(pattern);
+
+  pinMode(LIGHT_ONE_OUT, OUTPUT);
+  pinMode(LIGHT_ONE_IN, INPUT);
+
+  // debug light
+  pinMode(8, OUTPUT);
 }
 
 void loop() {
-  printPattern();
-  
-  // get input
-  // if input matches pattern:
-  //   level++;
+  //digitalWrite(LIGHT_ONE_OUT, HIGH);
 
-  if (level > winLength) {
-    win();
+  if (digitalRead(LIGHT_ONE_IN) == HIGH) {
+    digitalWrite(8, HIGH);
+  } else {
+    digitalWrite(8, LOW);
   }
 }
 
 void generatePattern(int arr[]) {
   for (int i = 0; i < winLength; i++) {
-    arr[i] = random(nLamps);
+    arr[i] = random(N_LAMPS);
   }
 }
