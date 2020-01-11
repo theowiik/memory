@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:uno",
+    "sketch": "memory.ino",
+    "port": "COM3",
+    "programmer": "ArduinoISP"
+}
